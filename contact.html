@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get in touch — big.</title>
+<meta name="description" content="Get in touch with Al Reid at big. Coaching and facilitation for founders, MDs and creative leaders.">
+<meta property="og:title" content="Get in touch — big.">
+<meta property="og:description" content="Coaching and facilitation for founders, MDs and creative leaders.">
+<meta property="og:image" content="https://bigness.netlify.app/images/portrait.jpg">
+<meta property="og:url" content="https://bigness.netlify.app/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="big.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://bigness.netlify.app/contact.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:      #F5F2ED;
+    --cream-mid:  #EDE9E2;
+    --rule:       #d0ccc4;
+    --ink:        #1a1916;
+    --ink-mid:    #5a5750;
+    --ink-muted:  #7a7770;
+    --ink-faint:  #9a9690;
+    --red:        #B8402E;
+    --pad:        56px;
+    --col-gap:    64px;
+    --section-v:  88px;
+    --max-w:      1280px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+
+  /* ─── NAV ─────────────────────────────────────────────────── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--cream);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px var(--pad);
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .nav-brand { display: flex; flex-direction: column; gap: 5px; }
+  .nav-logo {
+    font-family: Georgia, serif;
+    font-size: 23px; font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo .stop { color: var(--red); }
+  .nav-tagline { font-family: 'Lato', sans-serif; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-faint); text-transform: lowercase; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px; color: var(--ink-faint); text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cream); background: var(--red);
+    text-decoration: none; padding: 9px 18px;
+    border-radius: 2px; white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink); }
+
+  /* ─── PAGE HEADER ─────────────────────────────────────────── */
+  .page-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: start;
+  }
+  .page-header-left {
+    padding: var(--section-v) var(--pad);
+    border-right: 0.5px solid var(--rule);
+  }
+  .page-header-right {
+    padding: var(--section-v) var(--pad);
+  }
+  .page-header h1 {
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .page-header-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink-mid);
+    border-left: 2px solid var(--red);
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+
+  /* ─── CONTACT SECTION ────────────────────────────────────── */
+  .contact-section {
+    padding: var(--section-v) 0;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--col-gap);
+    align-items: start;
+  }
+  .contact-copy {
+    padding-right: 40px;
+  }
+  .contact-copy p {
+    font-family: 'Lato', sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--ink-mid);
+    margin-bottom: 20px;
+  }
+  .contact-copy p:last-child { margin-bottom: 0; }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .contact-method {
+    padding: 32px 0;
+    border-bottom: 0.5px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contact-method:first-child { padding-top: 0; }
+  .contact-method:last-child { border-bottom: none; padding-bottom: 0; }
+  .method-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .method-value {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .method-value:hover { color: var(--red); border-color: var(--red); }
+  .method-note {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-weight: 300;
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────────── */
+  .footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 32px var(--pad);
+    border-top: 0.5px solid var(--rule);
+  }
+  .footer-logo {
+    font-family: Georgia, serif;
+    font-size: 18px; color: var(--ink); text-decoration: none;
+  }
+  .footer-logo .stop { color: var(--red); }
+  .footer-copy {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; color: var(--ink-faint);
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    :root { --pad: 24px; --col-gap: 32px; --section-v: 56px; }
+    .nav { flex-wrap: wrap; gap: 12px; padding: 16px var(--pad); }
+    .nav-tagline { display: none; }
+    .nav-links { gap: 20px; }
+    .nav-cta { padding: 7px 14px; font-size: 11px; }
+    .page-header { grid-template-columns: 1fr; }
+    .page-header-left { border-right: none; border-bottom: 0.5px solid var(--rule); }
+    .page-header h1 { font-size: 40px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-copy { padding-right: 0; margin-bottom: 40px; }
+    .footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-brand">
+      <a href="/" class="nav-logo">big<span class="stop">.</span></a>
+      <span class="nav-tagline">coaching · facilitation</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html">Thinking</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta active" style="background:var(--ink);">Get in touch</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-left">
+      <h1>Start a<br>conversation<em>.</em></h1>
+    </div>
+    <div class="page-header-right">
+      <div class="page-header-sub">
+        No forms. No funnels. Just a conversation to see if working together makes sense.
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="inner">
+      <div class="contact-grid">
+        <div class="contact-copy">
+          <p>Most people who get in touch have a sense that something needs to change — in how they're working, in their business, or in themselves. They're not always sure what they need. That's fine. That's exactly what a first conversation is for.</p>
+          <p>I work with a small number of people at any one time. If the timing isn't right, I'll tell you — and I might be able to point you somewhere useful.</p>
+          <p>The best way to start is a short email. Tell me a little about where you are and what's prompting you to reach out. We'll take it from there.</p>
+        </div>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <span class="method-label">Email</span>
+            <a href="mailto:al@bigness.uk" class="method-value">al@bigness.uk</a>
+            <span class="method-note">Usually responds within a day or two.</span>
+          </div>
+          <div class="contact-method">
+            <span class="method-label">LinkedIn</span>
+            <a href="https://linkedin.com/in/alastairreid" class="method-value" target="_blank" rel="noopener">Alastair Reid</a>
+            <span class="method-note">Connect and say hello.</span>
+          </div>
+          <div class="contact-method">
+            <span class="method-label">Based in</span>
+            <span class="method-value" style="cursor:default;">Shoreham-by-Sea, UK</span>
+            <span class="method-note">Working with people across the UK and remotely worldwide.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="/" class="footer-logo">big<span class="stop">.</span></a>
+    <span class="footer-copy">© 2025 big. All rights reserved.</span>
+  </footer>
+
+</body>
+</html>

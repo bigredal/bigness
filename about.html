@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — big.</title>
+<title>About Al Reid — big.</title>
+<meta name="description" content="Thirty years in the creative industry — running studios, building teams. Since 2014, coaching founders, MDs and leaders who want to do it well.">
+<meta property="og:title" content="About Al Reid — big.">
+<meta property="og:description" content="Thirty years in the creative industry. Since 2014, working with the people who run things.">
+<meta property="og:image" content="https://bigness.netlify.app/images/portrait.jpg">
+<meta property="og:url" content="https://bigness.netlify.app/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="big.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Al Reid — big.">
+<meta name="twitter:description" content="Thirty years in the creative industry. Since 2014, working with the people who run things.">
+<meta name="twitter:image" content="https://bigness.netlify.app/images/portrait.jpg">
+<link rel="canonical" href="https://bigness.netlify.app/about.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
@@ -87,6 +99,15 @@
   }
   .nav-links a:hover { color: var(--ink); }
   .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cream); background: var(--red);
+    text-decoration: none; padding: 9px 18px;
+    border-radius: 2px; white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink); }
 
   /* ─── PAGE HEADER — full-bleed 50/50 matches portrait section ── */
   .page-header {
@@ -240,6 +261,10 @@
   /* ─── RESPONSIVE ───────────────────────────────────────────── */
   @media (max-width: 768px) {
     :root { --pad: 24px; --col-gap: 32px; --section-v: 56px; }
+    .nav { flex-wrap: wrap; gap: 12px; padding: 16px var(--pad); }
+    .nav-tagline { display: none; }
+    .nav-links { gap: 20px; }
+    .nav-cta { padding: 7px 14px; font-size: 11px; }
     .page-header { grid-template-columns: 1fr; }
     .page-header-right { border-left: none; border-top: 0.5px solid var(--rule); }
     .page-header h1 { font-size: 36px; }
@@ -265,6 +290,7 @@
       <li><a href="work.html">Work</a></li>
       <li><a href="thinking.html">Thinking</a></li>
     </ul>
+    <a href="contact.html" class="nav-cta">Get in touch</a>
   </nav>
 
   <!-- PAGE HEADER — full-bleed, top-aligned, mirrors portrait section -->

@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bigalisms — big.</title>
+<title>Bigalisms — Thinking from big.</title>
+<meta name="description" content="Essays and musings on leadership, creativity and change from Al Reid. Musings and amusings from coach, cyclist and worker bee.">
+<meta property="og:title" content="Bigalisms — Thinking from big.">
+<meta property="og:description" content="Essays and musings on leadership, creativity and change from Al Reid.">
+<meta property="og:image" content="https://bigness.netlify.app/images/IMG_6789.jpg">
+<meta property="og:url" content="https://bigness.netlify.app/thinking.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="big.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bigalisms — Thinking from big.">
+<meta name="twitter:description" content="Essays and musings on leadership, creativity and change from Al Reid.">
+<meta name="twitter:image" content="https://bigness.netlify.app/images/IMG_6789.jpg">
+<link rel="canonical" href="https://bigness.netlify.app/thinking.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
@@ -27,6 +39,15 @@
   .nav-links a { font-family:'Lato',sans-serif;font-size:13px;color:var(--ink-faint);text-decoration:none; }
   .nav-links a:hover { color:var(--ink); }
   .nav-links a.active { color:var(--ink); }
+  .nav-cta {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cream); background: var(--red);
+    text-decoration: none; padding: 9px 18px;
+    border-radius: 2px; white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink); }
 
   /* ─── PAGE HEADER ─────────────────────────────────────────── */
   .page-header {
@@ -152,6 +173,10 @@
 
   @media (max-width:900px) {
     :root { --pad:24px; --section-v:56px; }
+    .nav { flex-wrap:wrap; gap:12px; padding:16px var(--pad); }
+    .nav-tagline { display:none; }
+    .nav-links { gap:20px; }
+    .nav-cta { padding:7px 14px; font-size:11px; }
     .page-header { grid-template-columns:1fr; }
     .page-header h1 { font-size:36px; }
     .articles-grid { grid-template-columns:1fr 1fr; }
@@ -179,6 +204,7 @@
       <li><a href="work.html">Work</a></li>
       <li><a href="thinking.html" class="active">Thinking</a></li>
     </ul>
+    <a href="contact.html" class="nav-cta">Get in touch</a>
   </nav>
 
   <header class="page-header">

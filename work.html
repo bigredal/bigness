@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Work — big.</title>
+<title>How we work — big.</title>
+<meta name="description" content="Mentoring, coaching and consultancy for founders and leaders. Three approaches, one way of working. Al Reid, big.">
+<meta property="og:title" content="How we work — big.">
+<meta property="og:description" content="Three kinds of leadership support. Understanding the difference matters — because the right one depends on what you actually need.">
+<meta property="og:image" content="https://bigness.netlify.app/images/portrait.jpg">
+<meta property="og:url" content="https://bigness.netlify.app/work.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="big.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How we work — big.">
+<meta name="twitter:description" content="Three kinds of leadership support. Mentoring, coaching and consultancy.">
+<meta name="twitter:image" content="https://bigness.netlify.app/images/portrait.jpg">
+<link rel="canonical" href="https://bigness.netlify.app/work.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
@@ -85,6 +97,15 @@
   }
   .nav-links a:hover { color: var(--ink); }
   .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cream); background: var(--red);
+    text-decoration: none; padding: 9px 18px;
+    border-radius: 2px; white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink); }
 
   /* ─── PAGE HEADER ─────────────────────────────────────────── */
   .page-header {
@@ -325,6 +346,10 @@
   /* ─── RESPONSIVE ───────────────────────────────────────────── */
   @media (max-width: 768px) {
     :root { --pad: 24px; --col-gap: 32px; --section-v: 56px; }
+    .nav { flex-wrap: wrap; gap: 12px; padding: 16px var(--pad); }
+    .nav-tagline { display: none; }
+    .nav-links { gap: 20px; }
+    .nav-cta { padding: 7px 14px; font-size: 11px; }
     .page-header { grid-template-columns: 1fr; }
     .page-header h1 { font-size: 36px; }
     .approaches-grid { grid-template-columns: 1fr; }
@@ -355,6 +380,7 @@
       <li><a href="work.html" class="active">Work</a></li>
       <li><a href="thinking.html">Thinking</a></li>
     </ul>
+    <a href="contact.html" class="nav-cta">Get in touch</a>
   </nav>
 
   <!-- PAGE HEADER -->
