@@ -1,0 +1,97 @@
+---
+layout: base.njk
+title: "About Al Reid"
+description: "Thirty years in the creative industry — running studios, building teams. Since 2014, coaching founders, MDs and leaders who want to do it well."
+ogImage: portrait.jpg
+---
+
+{% block head %}
+<style>
+  .portrait-section { display:grid;grid-template-columns:1fr 1fr;border-bottom:0.5px solid var(--rule);align-items:start; }
+  .portrait-img { aspect-ratio:3/4;border-right:0.5px solid var(--rule); }
+  .portrait-img img { object-position:center top; }
+  .portrait-copy { padding:var(--section-v) var(--pad); }
+  .portrait-copy p { font-family:'Lato',sans-serif;font-size:15px;font-weight:300;color:var(--ink-mid);line-height:1.85; }
+  .portrait-copy p+p { margin-top:20px; }
+  .deco-rule { border:none;border-top:0.5px solid var(--rule);margin:32px 0; }
+  .full-img { width:100%;height:480px;border-bottom:0.5px solid var(--rule); }
+  .how { border-bottom:0.5px solid var(--rule); }
+  .how .inner { display:grid;grid-template-columns:1fr 1fr;gap:var(--col-gap);align-items:start;padding:var(--section-v) var(--pad); }
+  .how-copy p { font-family:'Lato',sans-serif;font-size:15px;font-weight:300;color:var(--ink-mid);line-height:1.85; }
+  .how-copy p+p { margin-top:20px; }
+  .how-img { aspect-ratio:1/1; }
+  .other { border-bottom:0.5px solid var(--rule);background:var(--cream-mid); }
+  .other .inner { display:grid;grid-template-columns:1fr 1fr;gap:var(--col-gap);align-items:start;padding:var(--section-v) var(--pad); }
+  .other-copy p { font-family:'Lato',sans-serif;font-size:15px;font-weight:300;color:var(--ink-mid);line-height:1.85; }
+  .other-copy p+p { margin-top:20px; }
+  .other-link { display:inline-block;margin-top:24px;font-family:'Lato',sans-serif;font-size:13px;color:var(--red);text-decoration:none; }
+  .other-img { aspect-ratio:1/1; }
+  .other-img img { object-position:center top; }
+  .cta { border-bottom:0.5px solid var(--rule); }
+  .cta .inner { padding:var(--section-v) var(--pad); }
+  .cta-text { font-size:32px;font-weight:400;letter-spacing:-0.02em;line-height:1.2;margin-bottom:24px;max-width:640px; }
+  .cta-email { font-family:'Lato',sans-serif;font-size:15px;color:var(--red);text-decoration:none; }
+  @media (max-width:768px) {
+    .portrait-section { grid-template-columns:1fr; }
+    .portrait-img { aspect-ratio:4/3 !important;border-right:none;border-bottom:0.5px solid var(--rule); }
+    .full-img { height:280px; }
+    .how .inner,.other .inner { grid-template-columns:1fr;gap:32px; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+  <header class="page-header">
+    <div class="page-header-left">
+      <h1>Maker and shaper.<br>Thirty years<br>in the <em>making.</em></h1>
+    </div>
+    <div class="page-header-right">
+      <div class="page-header-sub">Thirty years in the creative industry — running studios, building teams, learning what it actually costs to make something good. Since 2014, working with the people who run things.</div>
+    </div>
+  </header>
+
+  <section class="portrait-section">
+    <div class="portrait-img img-wrap"><img src="/images/portrait.jpg" alt="Al Reid at Brighton station"></div>
+    <div class="portrait-copy">
+      <span class="label">My background</span>
+      <p>I spent twenty years running creative studios — building teams, navigating clients, learning what it actually costs to make something good. The kind of work that leaves you knowing exactly how pressure feels from the inside.</p>
+      <p>In 2014 I stopped running studios and started working with the people who run things. It turned out to be the most interesting work I've done.</p>
+      <p>Since then I've worked with founders, MDs, and leaders across all sorts of businesses — not a specific industry, but a specific kind of person. Forward-looking. Honest. Interested in doing it well and feeling good about how they got there.</p>
+      <hr class="deco-rule">
+    </div>
+  </section>
+
+  <div class="full-img img-wrap"><img src="/images/IMG_0587.jpg" alt="A path through woodland, winter light"></div>
+
+  <section class="how">
+    <div class="inner">
+      <div class="how-copy">
+        <span class="label">How I work</span>
+        <p>The approach is coaching-led — which means I ask more than I tell, and I listen more than either. But it's grounded in real-world experience, not just frameworks. I've been in the room. I know what it feels like when things aren't working and you can't quite see why.</p>
+        <p>Sessions happen over Zoom, in coffee shops, on long walks. And when the problem is knotty enough, at a farm in Sussex — with a fire going, something cooking, and enough space to think properly. Some problems are easier to solve outdoors.</p>
+        <p>I work one-to-one, and occasionally with leadership teams when a group needs to think something through together. The thread is always the same: get clearer on what actually matters, and work out how to get there.</p>
+        <hr class="deco-rule">
+      </div>
+      <div class="how-img img-wrap"><img src="/images/IMG_6789.jpg" alt="Moka pot brewing on an open fire in a Sussex field"></div>
+    </div>
+  </section>
+
+  <section class="other">
+    <div class="inner">
+      <div class="other-copy">
+        <span class="label">My other life</span>
+        <p>I'm also a DJ — 4,400 records and still growing. A photographer. A cyclist. I live in Shoreham-by-Sea on the Sussex coast, which is a good place to think.</p>
+        <p>The music, the images, and the miles all feed the same thing: paying close attention to the world. Which, it turns out, is also the most useful thing you can do in a coaching session.</p>
+        <a href="https://bigredal.com" class="other-link">The music lives at bigredal.com →</a>
+      </div>
+      <div class="other-img img-wrap"><img src="/images/portrait-cycling.jpg" alt="Al Reid on a bike ride near Shoreham"></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="inner">
+      <div class="cta-text">If any of this sounds like the right kind of conversation, get in touch.</div>
+      <a href="mailto:al@bigness.uk" class="cta-email">al@bigness.uk</a>
+    </div>
+  </section>
+{% endblock %}

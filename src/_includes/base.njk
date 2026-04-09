@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if titleRaw %}{{ titleRaw }}{% else %}{{ title }} — big.{% endif %}</title>
+<meta name="description" content="{{ description }}">
+<meta property="og:title" content="{{ title }} — big.">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="https://bigness.netlify.app/images/{{ ogImage if ogImage else 'portrait.jpg' }}">
+<meta property="og:url" content="https://bigness.netlify.app{{ page.url }}">
+<meta property="og:type" content="{{ ogType if ogType else 'website' }}">
+<meta property="og:site_name" content="big.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }} — big.">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="https://bigness.netlify.app/images/{{ ogImage if ogImage else 'portrait.jpg' }}">
+<link rel="canonical" href="https://bigness.netlify.app{{ page.url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+{% block head %}{% endblock %}
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">
+      <a href="/" class="nav-logo">big<span class="stop">.</span></a>
+      <span class="nav-tagline">coaching · facilitation</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/about/" {% if page.url == '/about/' %}class="active"{% endif %}>About</a></li>
+      <li><a href="/work/" {% if page.url == '/work/' %}class="active"{% endif %}>Work</a></li>
+      <li><a href="/thinking/" {% if page.url == '/thinking/' or '/essays/' in page.url %}class="active"{% endif %}>Thinking</a></li>
+    </ul>
+    <a href="/contact/" class="nav-cta" {% if page.url == '/contact/' %}style="background:var(--ink);"{% endif %}>Get in touch</a>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  {% block footer %}
+  <footer class="footer">
+    <a href="/" class="footer-logo">big<span class="stop">.</span></a>
+    <span class="footer-copy">© 2025 big. All rights reserved.</span>
+  </footer>
+  {% endblock %}
+
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

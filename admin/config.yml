@@ -1,0 +1,35 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images"
+public_folder: "/images"
+
+collections:
+  - name: "essays"
+    label: "Essays"
+    folder: "src/essays"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title HTML", name: "titleHtml", widget: "string", hint: "Use <br> for line breaks and <em> for italic red text" }
+      - { label: "Standfirst", name: "standfirst", widget: "text", hint: "One or two sentences. Appears under the title and on the card." }
+      - { label: "Description (SEO)", name: "description", widget: "text" }
+      - { label: "Tag", name: "tag", widget: "select", options: ["Business", "Thinking", "Design", "Leadership", "Creativity"] }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "OG Image", name: "ogImage", widget: "image", required: false }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "essay.njk" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "src/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Attribution", name: "attribution", widget: "string", hint: "e.g. Founder, creative consultancy" }
+      - { label: "Page", name: "page", widget: "select", options: ["home", "work", "both"], default: "work" }
+      - { label: "Order", name: "order", widget: "number", default: 1 }

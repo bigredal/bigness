@@ -1,0 +1,64 @@
+---
+layout: base.njk
+title: "Get in touch"
+description: "Get in touch with Al Reid at big. Coaching and facilitation for founders, MDs and creative leaders."
+---
+
+{% block head %}
+<style>
+  .contact-section { padding:var(--section-v) 0;border-bottom:0.5px solid var(--rule); }
+  .contact-grid { display:grid;grid-template-columns:1fr 1fr;gap:var(--col-gap);align-items:start;padding:0 var(--pad); }
+  .contact-copy p { font-family:'Lato',sans-serif;font-size:17px;font-weight:300;color:var(--ink-mid);line-height:1.65; }
+  .contact-copy p+p { margin-top:20px; }
+  .contact-methods { display:flex;flex-direction:column;gap:0; }
+  .contact-method { padding:32px 0;border-bottom:0.5px solid var(--rule); }
+  .contact-method:first-child { padding-top:0; }
+  .contact-method:last-child { border-bottom:none;padding-bottom:0; }
+  .method-label { font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:10px; }
+  .method-value { font-size:22px;font-weight:400;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s,color 0.2s;display:inline-block; }
+  .method-value:hover { color:var(--red);border-color:var(--red); }
+  .method-note { display:block;font-family:'Lato',sans-serif;font-size:13px;color:var(--ink-faint);font-weight:300;margin-top:8px; }
+  @media (max-width:768px) {
+    .contact-grid { grid-template-columns:1fr; }
+    .contact-copy { margin-bottom:40px; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+  <header class="page-header">
+    <div class="page-header-left">
+      <h1>Start a<br>conversation<em>.</em></h1>
+    </div>
+    <div class="page-header-right">
+      <div class="page-header-sub">No forms. No funnels. Just a conversation to see if working together makes sense.</div>
+    </div>
+  </header>
+
+  <section class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <p>Most people who get in touch have a sense that something needs to change — in how they're working, in their business, or in themselves. They're not always sure what they need. That's fine. That's exactly what a first conversation is for.</p>
+        <p>I work with a small number of people at any one time. If the timing isn't right, I'll tell you — and I might be able to point you somewhere useful.</p>
+        <p>The best way to start is a short email. Tell me a little about where you are and what's prompting you to reach out. We'll take it from there.</p>
+      </div>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <span class="method-label">Email</span>
+          <a href="mailto:al@bigness.uk" class="method-value">al@bigness.uk</a>
+          <span class="method-note">Usually responds within a day or two.</span>
+        </div>
+        <div class="contact-method">
+          <span class="method-label">LinkedIn</span>
+          <a href="https://linkedin.com/in/alastairreid" class="method-value" target="_blank" rel="noopener">Alastair Reid</a>
+          <span class="method-note">Connect and say hello.</span>
+        </div>
+        <div class="contact-method">
+          <span class="method-label">Based in</span>
+          <span class="method-value" style="cursor:default;">Shoreham-by-Sea, UK</span>
+          <span class="method-note">Working with people across the UK and remotely worldwide.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
