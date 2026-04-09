@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — big.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:      #F5F2ED;
+    --cream-mid:  #EDE9E2;
+    --rule:       #d0ccc4;
+    --ink:        #1a1916;
+    --ink-mid:    #5a5750;
+    --ink-muted:  #7a7770;
+    --ink-faint:  #9a9690;
+    --red:        #B8402E;
+
+    /* Grid system — shared with homepage */
+    --pad:        56px;
+    --col-gap:    64px;
+    --section-v:  88px;
+    --max-w:      1280px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .label {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-muted); display: block; margin-bottom: 24px;
+  }
+
+  /* ─── DECORATIVE RULE ─────────────────────────────────────── */
+  .deco-rule {
+    display: block;
+    width: 56px;
+    height: 1px;
+    background: var(--red);
+    border: none;
+    margin: 36px 0 0;
+  }
+
+  /* ─── SHARED ───────────────────────────────────────────────── */
+  .inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: var(--section-v) var(--pad);
+  }
+  .grid-half {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--col-gap);
+    align-items: start;
+  }
+
+  /* ─── NAV ─────────────────────────────────────────────────── */
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px var(--pad);
+    border-bottom: 0.5px solid var(--rule);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+  }
+  .nav-logo {
+    font-family: Georgia, serif;
+    font-size: 23px; font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-brand { display: flex; flex-direction: column; gap: 5px; }
+  .nav-logo .stop { color: var(--red); }
+  .nav-tagline { font-family: 'Lato', sans-serif; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-faint); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px; color: var(--ink-faint); text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); }
+
+  /* ─── PAGE HEADER — full-bleed 50/50 matches portrait section ── */
+  .page-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: start;
+  }
+  .page-header-left,
+  .page-header-right {
+    padding: var(--section-v) var(--pad);
+  }
+  .page-header-right {
+    /* grey divider removed — standfirst red accent does this job now */
+  }
+  .page-header h1 {
+    font-family: Georgia, serif;
+    font-size: 52px; font-weight: 400; line-height: 1.1;
+    letter-spacing: -0.035em; color: var(--ink);
+  }
+  .page-header h1 em { font-style: italic; color: var(--red); }
+  .page-header-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 21px; font-weight: 300;
+    color: var(--ink-mid); line-height: 1.65;
+    border-left: 2px solid var(--red);
+    padding-left: 20px;
+  }
+
+  /* ─── PORTRAIT ─────────────────────────────────────────────── */
+  /* Portrait is full-bleed by design — no inner wrapper */
+  .portrait-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: start;
+  }
+  .portrait-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-right: 0.5px solid var(--rule);
+  }
+  .portrait-copy {
+    padding: var(--section-v) var(--pad);
+    max-width: calc(var(--max-w) / 2); /* align text with inner grid */
+  }
+  .portrait-copy p {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; font-weight: 300; color: var(--ink-mid); line-height: 1.85;
+  }
+  .portrait-copy p + p { margin-top: 20px; }
+
+  /* ─── FULL-WIDTH IMAGE ─────────────────────────────────────── */
+  .full-img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  /* ─── HOW I WORK ───────────────────────────────────────────── */
+  .how {
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .how .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--col-gap);
+    align-items: start;
+  }
+  .how-copy p {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; font-weight: 300; color: var(--ink-mid); line-height: 1.85;
+  }
+  .how-copy p + p { margin-top: 20px; }
+  .how-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ─── OTHER LIFE ───────────────────────────────────────────── */
+  .other {
+    border-bottom: 0.5px solid var(--rule);
+    background: var(--cream-mid);
+  }
+  .other .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--col-gap);
+    align-items: start;
+  }
+  .other-copy p {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; font-weight: 300; color: var(--ink-mid); line-height: 1.85;
+  }
+  .other-copy p + p { margin-top: 20px; }
+  .other-link {
+    display: inline-block; margin-top: 24px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px; color: var(--red); text-decoration: none;
+  }
+  .other-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────── */
+  .cta {
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .cta-text {
+    font-family: Georgia, serif;
+    font-size: 32px; font-weight: 400; line-height: 1.3;
+    letter-spacing: -0.02em; color: var(--ink);
+    max-width: 600px; margin-bottom: 28px;
+  }
+  .cta-email {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; color: var(--red); text-decoration: none;
+  }
+
+  /* ─── FOOTER ───────────────────────────────────────────────── */
+  .footer {
+    padding: 28px var(--pad);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-logo {
+    font-family: Georgia, serif; font-size: 16px; font-weight: 400; color: var(--ink-mid);
+    text-decoration: none;
+  }
+  .footer-logo .stop { color: var(--red); }
+  .footer-links { display: flex; gap: 28px; list-style: none; }
+  .footer-links a {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; color: var(--ink-faint); text-decoration: none;
+  }
+  .footer-contact a {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; color: var(--red); text-decoration: none;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    :root { --pad: 24px; --col-gap: 32px; --section-v: 56px; }
+    .page-header { grid-template-columns: 1fr; }
+    .page-header-right { border-left: none; border-top: 0.5px solid var(--rule); }
+    .page-header h1 { font-size: 36px; }
+    .how .inner,
+    .other .inner { grid-template-columns: 1fr; gap: 32px; }
+    .portrait-section { grid-template-columns: 1fr; }
+    .portrait-img { aspect-ratio: 4/3; border-right: none; border-bottom: 0.5px solid var(--rule); }
+    .full-img { height: 280px; }
+    .footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-brand">
+      <a href="/" class="nav-logo">big<span class="stop">.</span></a>
+      <span class="nav-tagline">coaching · facilitation</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html">Thinking</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER — full-bleed, top-aligned, mirrors portrait section -->
+  <header class="page-header">
+    <div class="page-header-left">
+      <h1>Maker and shaper.<br>Thirty years<br>in the <em>making.</em></h1>
+    </div>
+    <div class="page-header-right">
+      <div class="page-header-sub">
+        Thirty years in the creative industry — running studios, building teams, learning what it actually costs to make something good. Since 2014, working with the people who run things.
+      </div>
+    </div>
+  </header>
+
+  <!-- PORTRAIT + STORY -->
+  <section class="portrait-section">
+    <img class="portrait-img" src="images/portrait.jpg" alt="Al Reid at Brighton station" />
+    <div class="portrait-copy">
+      <span class="label">My background</span>
+      <p>I spent twenty years running creative studios — building teams, navigating clients, learning what it actually costs to make something good. The kind of work that leaves you knowing exactly how pressure feels from the inside.</p>
+      <p>In 2014 I stopped running studios and started working with the people who run things. It turned out to be the most interesting work I've done.</p>
+      <p>Since then I've worked with founders, MDs, and leaders across all sorts of businesses — not a specific industry, but a specific kind of person. Forward-looking. Honest. Interested in doing it well and feeling good about how they got there.</p>
+      <hr class="deco-rule">
+    </div>
+  </section>
+
+  <!-- FULL-WIDTH IMAGE — woodland path -->
+  <img class="full-img" src="images/IMG_0587.jpg" alt="A path through woodland, winter light" />
+
+  <!-- HOW I WORK -->
+  <section class="how">
+    <div class="inner">
+      <div class="how-copy">
+        <span class="label">How I work</span>
+        <p>The approach is coaching-led — which means I ask more than I tell, and I listen more than either. But it's grounded in real-world experience, not just frameworks. I've been in the room. I know what it feels like when things aren't working and you can't quite see why.</p>
+        <p>Sessions happen over Zoom, in coffee shops, on long walks. And when the problem is knotty enough, at a farm in Sussex — with a fire going, something cooking, and enough space to think properly. Some problems are easier to solve outdoors.</p>
+        <p>I work one-to-one, and occasionally with leadership teams when a group needs to think something through together. The thread is always the same: get clearer on what actually matters, and work out how to get there.</p>
+        <hr class="deco-rule">
+      </div>
+      <img class="how-img" src="images/IMG_6789.jpg" alt="Moka pot brewing on an open fire in a Sussex field" />
+    </div>
+  </section>
+
+  <!-- THE OTHER LIFE -->
+  <section class="other">
+    <div class="inner">
+      <div class="other-copy">
+        <span class="label">My other life</span>
+        <p>I'm also a DJ — 4,400 records and still growing. A photographer. A cyclist. I live in Shoreham-by-Sea on the Sussex coast, which is a good place to think.</p>
+        <p>The music, the images, and the miles all feed the same thing: paying close attention to the world. Which, it turns out, is also the most useful thing you can do in a coaching session.</p>
+        <a href="https://bigredal.com" class="other-link">The music lives at bigredal.com →</a>
+      </div>
+      <img class="other-img" src="images/portrait-cycling.jpg" alt="Al Reid on a bike ride near Shoreham" />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="inner">
+      <div class="cta-text">If any of this sounds like the right kind of conversation, get in touch.</div>
+      <a href="mailto:al@bigness.uk" class="cta-email">al@bigness.uk</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="/" class="footer-logo">big<span class="stop">.</span></a>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html">Thinking</a></li>
+    </ul>
+    <div class="footer-contact">
+      <a href="mailto:al@bigness.uk">al@bigness.uk</a>
+    </div>
+  </footer>
+
+</body>
+</html>

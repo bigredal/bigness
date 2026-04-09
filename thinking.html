@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bigalisms — big.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:#F5F2ED; --cream-mid:#EDE9E2; --rule:#d0ccc4;
+    --ink:#1a1916; --ink-mid:#5a5750; --ink-muted:#7a7770; --ink-faint:#9a9690;
+    --red:#B8402E;
+    --pad:56px; --col-gap:1px; --section-v:88px; --max-w:1280px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--ink); }
+
+  /* ─── NAV ─────────────────────────────────────────────────── */
+  .nav { display:flex;align-items:center;justify-content:space-between;padding:24px var(--pad);border-bottom:0.5px solid var(--rule);position:sticky;top:0;z-index:100;background:var(--cream); }
+  .nav-brand { display:flex;flex-direction:column;gap:5px; }
+  .nav-logo { font-family:Georgia,serif;font-size:23px;font-weight:400;letter-spacing:-0.02em;color:var(--ink);text-decoration:none; }
+  .nav-logo .stop { color:var(--red); }
+  .nav-tagline { font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.12em;color:var(--ink-faint); }
+  .nav-links { display:flex;gap:36px;list-style:none; }
+  .nav-links a { font-family:'Lato',sans-serif;font-size:13px;color:var(--ink-faint);text-decoration:none; }
+  .nav-links a:hover { color:var(--ink); }
+  .nav-links a.active { color:var(--ink); }
+
+  /* ─── PAGE HEADER ─────────────────────────────────────────── */
+  .page-header {
+    display:grid; grid-template-columns:1fr 1fr;
+    border-bottom:0.5px solid var(--rule); align-items:start;
+  }
+  .page-header-left, .page-header-right { padding:var(--section-v) var(--pad); }
+  .page-header h1 { font-family:Georgia,serif;font-size:52px;font-weight:400;line-height:1.1;letter-spacing:-0.035em; }
+  .page-header h1 em { font-style:italic;color:var(--red); }
+  .page-header-tagline { font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:var(--ink-muted);margin-top:16px;letter-spacing:0.02em; }
+  .page-header-sub { font-family:'Lato',sans-serif;font-size:21px;font-weight:300;color:var(--ink-mid);line-height:1.65;border-left:2px solid var(--red);padding-left:20px; }
+
+  /* ─── ARTICLES GRID ───────────────────────────────────────── */
+  /* 3-column grid. Cards can span 1, 2 or 3 cols */
+  .articles-grid {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-bottom:0.5px solid var(--rule);
+  }
+
+  /* Each card */
+  .article-card {
+    border-right:0.5px solid var(--rule);
+    border-bottom:0.5px solid var(--rule);
+    display:flex;
+    flex-direction:column;
+  }
+  .article-card:last-child,
+  .article-card.col-span-3 { border-right:none; }
+
+  /* Column span variants */
+  .col-span-2 { grid-column:span 2; }
+  .col-span-3 { grid-column:span 3; border-right:none; }
+
+  /* Image with title overlay */
+  .card-img-wrap {
+    position:relative;
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  /* Same-row cards (col-span-2 + col-span-1) share a fixed height so images align */
+  .col-span-2 .card-img-wrap,
+  .col-span-1 .card-img-wrap { height: clamp(240px, 28vw, 400px); }
+  /* Full-width card uses aspect ratio */
+  .col-span-3 .card-img-wrap { aspect-ratio:21/8; }
+
+  .card-img-wrap img {
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+
+  /* Brand-colour wash — fades out on hover */
+  .card-img-wrap::after {
+    content:'';
+    position:absolute;inset:0;
+    background:rgba(184,64,46,0.20);
+    transition:opacity 0.35s ease;
+    z-index:1;
+    pointer-events:none;
+  }
+  .article-card:hover .card-img-wrap::after { opacity:0; }
+
+  /* Gradient + title overlay */
+  .card-overlay {
+    position:absolute;bottom:0;left:0;right:0;
+    padding:40px 28px 24px;
+    background:linear-gradient(to bottom, transparent 0%, rgba(26,25,22,0.78) 100%);
+    z-index:2;
+  }
+  .col-span-3 .card-overlay { padding:64px 48px 36px; }
+
+  .card-title {
+    font-family:Georgia,serif;font-weight:400;color:#fff;
+    line-height:1.15;letter-spacing:-0.025em;
+    text-shadow:0 1px 3px rgba(0,0,0,0.3);
+  }
+  .col-span-1 .card-title { font-size:22px; }
+  .col-span-2 .card-title { font-size:32px; }
+  .col-span-3 .card-title { font-size:44px; }
+  .card-title em { font-style:italic;color:#e8998a; } /* red tinted for legibility on dark */
+
+  /* Below-image card body */
+  .card-body {
+    padding:20px 28px 28px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+  }
+  .col-span-3 .card-body { padding:20px 48px 36px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+
+  .card-meta {
+    display:flex;gap:16px;align-items:center;margin-bottom:12px;
+  }
+  .card-tag { font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted); }
+  .card-read-time { font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.06em;color:var(--ink-faint); }
+
+  .card-standfirst {
+    font-family:'Lato',sans-serif;font-size:14px;font-weight:300;
+    color:var(--ink-mid);line-height:1.75;
+    flex:1;
+  }
+  .col-span-2 .card-standfirst,
+  .col-span-3 .card-standfirst { font-size:15px; }
+
+  .card-link {
+    display:block;text-decoration:none;color:inherit;
+    height:100%;
+  }
+  .card-link:hover .card-title { text-decoration:underline;text-underline-offset:3px; }
+
+  .card-read-link {
+    display:inline-block;margin-top:16px;
+    font-family:'Lato',sans-serif;font-size:12px;color:var(--red);text-decoration:none;letter-spacing:0.02em;
+  }
+
+  /* ─── FOOTER ───────────────────────────────────────────────── */
+  .footer { padding:28px var(--pad);display:flex;justify-content:space-between;align-items:center; }
+  .footer-logo { font-family:Georgia,serif;font-size:16px;font-weight:400;color:var(--ink-mid);text-decoration:none; }
+  .footer-logo .stop { color:var(--red); }
+  .footer-links { display:flex;gap:28px;list-style:none; }
+  .footer-links a { font-family:'Lato',sans-serif;font-size:12px;color:var(--ink-faint);text-decoration:none; }
+  .footer-contact a { font-family:'Lato',sans-serif;font-size:12px;color:var(--red);text-decoration:none; }
+
+  @media (max-width:900px) {
+    :root { --pad:24px; --section-v:56px; }
+    .page-header { grid-template-columns:1fr; }
+    .page-header h1 { font-size:36px; }
+    .articles-grid { grid-template-columns:1fr 1fr; }
+    .col-span-2, .col-span-3 { grid-column:span 2; }
+    .col-span-3 .card-body { grid-template-columns:1fr; gap:0; }
+    .footer { flex-direction:column;gap:20px;text-align:center; }
+  }
+  @media (max-width:600px) {
+    .articles-grid { grid-template-columns:1fr; }
+    .col-span-2, .col-span-3 { grid-column:span 1; }
+    .col-span-2 .card-img-wrap,
+    .col-span-3 .card-img-wrap { aspect-ratio:16/9; }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">
+      <a href="/" class="nav-logo">big<span class="stop">.</span></a>
+      <span class="nav-tagline">coaching · facilitation</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html" class="active">Thinking</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-left">
+      <h1>Big<em>alisms.</em></h1>
+      <p class="page-header-tagline">Musings and amusings from coach, cyclist and worker bee</p>
+    </div>
+    <div class="page-header-right">
+      <div class="page-header-sub">
+        Writing about leadership, creativity, and the kind of thinking that tends to happen when you've spent thirty years watching how people and businesses actually work.
+      </div>
+    </div>
+  </header>
+
+  <!-- ARTICLES GRID: card 1 wide (2/3), card 2 narrow (1/3), card 3 full width -->
+  <section class="articles-grid">
+
+    <!-- Card 1: wide (2 cols) -->
+    <article class="article-card col-span-2">
+      <a href="essay-dicks.html" class="card-link">
+        <div class="card-img-wrap">
+          <img src="images/IMG_0587.jpg" alt="Don't work with Dicks" />
+          <div class="card-overlay">
+            <h2 class="card-title">Don't work with <em>Dicks.</em></h2>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag">Business</span>
+            <span class="card-read-time">7 min read</span>
+          </div>
+          <p class="card-standfirst">You know they're a problem from the first meeting. Your instinct tells you. Here's why you ignore it anyway — and what it ends up costing you, every time.</p>
+        </div>
+      </a>
+    </article>
+
+    <!-- Card 2: narrow (1 col) -->
+    <article class="article-card col-span-1">
+      <a href="essay-idiot.html" class="card-link">
+        <div class="card-img-wrap">
+          <img src="images/IMG_6778.jpg" alt="Shut up the Idiot" />
+          <div class="card-overlay">
+            <h2 class="card-title">Shut up<br>the <em>Idiot.</em></h2>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag">Thinking</span>
+            <span class="card-read-time">4 min read</span>
+          </div>
+          <p class="card-standfirst">Your conscious mind is good at logic and terrible at solving real problems. The best ideas come from somewhere else entirely.</p>
+        </div>
+      </a>
+    </article>
+
+    <!-- Card 3: full width -->
+    <article class="article-card col-span-3">
+      <a href="essay-design.html" class="card-link">
+        <div class="card-img-wrap">
+          <img src="images/IMG_6789.jpg" alt="What is design?" />
+          <div class="card-overlay">
+            <h2 class="card-title">What is <em>design?</em></h2>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-tag">Design</span>
+            <span class="card-read-time">2 min read</span>
+          </div>
+          <p class="card-standfirst">Design is about making things better — full stop. Everything else follows from that. One word explains why this matters more now than it ever has.</p>
+        </div>
+      </a>
+    </article>
+
+  </section>
+
+  <footer class="footer">
+    <a href="/" class="footer-logo">big<span class="stop">.</span></a>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html">Thinking</a></li>
+    </ul>
+    <div class="footer-contact"><a href="mailto:al@bigness.uk">al@bigness.uk</a></div>
+  </footer>
+
+</body>
+</html>

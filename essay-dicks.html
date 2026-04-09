@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't work with Dicks — big.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root { --cream:#F5F2ED;--cream-mid:#EDE9E2;--rule:#d0ccc4;--ink:#1a1916;--ink-mid:#5a5750;--ink-muted:#7a7770;--ink-faint:#9a9690;--red:#B8402E;--pad:56px;--section-v:88px;--max-w:1280px; }
+  * { box-sizing:border-box;margin:0;padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--ink); }
+  .nav { display:flex;align-items:center;justify-content:space-between;padding:24px var(--pad);border-bottom:0.5px solid var(--rule);position:sticky;top:0;z-index:100;background:var(--cream); }
+  .nav-logo { font-family:Georgia,serif;font-size:20px;font-weight:400;letter-spacing:-0.02em;color:var(--ink);text-decoration:none; }
+  .nav-logo .stop { color:var(--red); }
+  .nav-links { display:flex;gap:36px;list-style:none; }
+  .nav-links a { font-family:'Lato',sans-serif;font-size:13px;color:var(--ink-faint);text-decoration:none; }
+  .nav-links a:hover { color:var(--ink); }
+  .nav-links a.active { color:var(--ink); }
+
+  /* Meta sits full-width above the grid */
+  .article-meta { display:flex;gap:24px;padding:var(--section-v) var(--pad) 0;align-items:center; }
+  .article-tag { font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted); }
+  .article-date { font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.08em;color:var(--ink-faint); }
+
+  /* 2-col grid: headline left, standfirst right — both from same top */
+  .article-header {
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:64px;align-items:start;
+    padding:28px var(--pad) var(--section-v);
+    border-bottom:0.5px solid var(--rule);
+  }
+  .article-title { font-family:Georgia,serif;font-size:52px;font-weight:400;line-height:1.1;letter-spacing:-0.035em; }
+  .article-title em { font-style:italic;color:var(--red); }
+  .article-standfirst { font-family:'Lato',sans-serif;font-size:21px;font-weight:300;color:var(--ink-mid);line-height:1.65;border-left:2px solid var(--red);padding-left:20px; }
+
+  /* Full-width image below header */
+  .article-hero-img {
+    width:100%;aspect-ratio:16/7;object-fit:cover;display:block;
+    border-bottom:0.5px solid var(--rule);background:var(--cream-mid);
+  }
+  .article-hero-placeholder {
+    width:100%;aspect-ratio:16/7;background:var(--cream-mid);
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:0.5px solid var(--rule);
+  }
+  .article-hero-placeholder span { font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint); }
+
+  /* Body */
+  .article-body { max-width:680px;margin:0 auto;padding:var(--section-v) var(--pad); }
+  .article-body p { font-family:'Lato',sans-serif;font-size:17px;font-weight:300;color:var(--ink-mid);line-height:1.85; }
+  .article-body p + p { margin-top:24px; }
+  .article-body ol { margin:32px 0 32px 24px; }
+  .article-body ol li { font-family:'Lato',sans-serif;font-size:17px;font-weight:300;color:var(--ink-mid);line-height:1.85;margin-bottom:16px; }
+
+  /* Pull quote */
+  .pull-quote {
+    margin:48px 0;
+    padding:0 0 0 24px;
+    border-left:2px solid var(--red);
+  }
+  .pull-quote p {
+    font-family:Georgia,serif;font-size:24px;font-weight:400;font-style:italic;
+    color:var(--ink);line-height:1.45;letter-spacing:-0.015em;
+  }
+  .pull-quote p + p { margin-top:0 !important; }
+
+  /* Inline image within body */
+  .body-img {
+    margin:48px 0;
+  }
+  .body-img img { width:100%;display:block;border-bottom:0.5px solid var(--rule); }
+  .body-img-placeholder {
+    width:100%;aspect-ratio:16/9;background:var(--cream-mid);
+    display:flex;align-items:center;justify-content:center;margin:48px 0;
+  }
+  .body-img-placeholder span { font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint); }
+  .body-img figcaption {
+    font-family:'Lato',sans-serif;font-size:12px;color:var(--ink-faint);
+    margin-top:12px;line-height:1.5;
+  }
+
+  /* Section break */
+  .body-break { display:block;width:56px;height:1px;background:var(--red);border:none;margin:48px 0; }
+
+  .article-back { padding:0 var(--pad) var(--section-v);max-width:680px;margin:0 auto; }
+  .article-back a { font-family:'Lato',sans-serif;font-size:13px;color:var(--red);text-decoration:none; }
+  .footer { padding:28px var(--pad);display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--rule); }
+  .footer-logo { font-family:Georgia,serif;font-size:16px;font-weight:400;color:var(--ink-mid);text-decoration:none; }
+  .footer-logo .stop { color:var(--red); }
+  .footer-links { display:flex;gap:28px;list-style:none; }
+  .footer-links a { font-family:'Lato',sans-serif;font-size:12px;color:var(--ink-faint);text-decoration:none; }
+  .footer-contact a { font-family:'Lato',sans-serif;font-size:12px;color:var(--red);text-decoration:none; }
+  @media (max-width:768px) { :root{--pad:24px;--section-v:56px;} .article-header{grid-template-columns:1fr;gap:32px;} .article-title{font-size:36px;} .footer{flex-direction:column;gap:20px;text-align:center;} }
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-brand">
+      <a href="/" class="nav-logo">big<span class="stop">.</span></a>
+      <span class="nav-tagline">coaching · facilitation</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html" class="active">Thinking</a></li>
+    </ul>
+  </nav>
+
+  <div class="article-meta">
+    <span class="article-tag">Business</span>
+    <span class="article-date">2015</span>
+  </div>
+
+  <div class="article-header">
+    <h1 class="article-title">Don't work<br>with <em>Dicks.</em></h1>
+    <p class="article-standfirst">You know they're a problem from the first meeting. Your instinct tells you. Here's why you ignore it anyway — and what it ends up costing you, every time.</p>
+  </div>
+
+  <img class="article-hero-img" src="images/IMG_0587.jpg" alt="Don't work with Dicks" />
+
+  <div class="article-body">
+    <p>You know that moment, when your marketing has paid off, you have a lead, it's getting serious, and you're within sight of the first cheque. It's looking like a new client win.</p>
+    <p>Backs are being prepared to be slapped, targets are being filled, jobs being secured, expectations being raised, rewards being mentally spent. This is it! Growth! New Clients! Boom!</p>
+    <p>Except that there is a niggling itch. Suppressed by the intoxicating heady mix of adrenaline and dopamine, the itch is ignored, but doesn't go away. In fact as you gain deeper exposure to the relationship, the itch grows, becoming harder and harder to suppress. The itch is exposing an ugly truth. This new client is a bit of a Dick.</p>
+    <p>Your instinct tells you this is the case, and it's reinforced by behavioural observations. It might be an arrogant attitude, questionable decision making, an unhealthy focus on price, not returning calls or emails, rudeness, or not listening to what you have to say. Yep. This client is definitely shaping up to be a bit of a Dick.</p>
+    <p>But you rationalise it. We'll make it work. My job, or my company needs it. We'll suck it up — it's work right? Sometimes you have to take the shit to get paid. Or simply — it'll get better once we start working with them.</p>
+    <p>Except it doesn't. All those early gut instincts prove correct. Or worse. We've moved from courtship to day to day business. This Dick is now all over my day, making me and the team miserable.</p>
+    <p>Except we're not even getting paid fairly. The Dick has challenged our last invoice, moved the goal posts, doesn't like anything you've done, hasn't given you the information you need, and has demanded more of your time. Not to worry. We'll make it work. Our pride dictates. Who wants to be part of a failed relationship?</p>
+
+    <hr class="body-break">
+
+    <div class="pull-quote">
+      <p>"Changing client behaviour is like pushing water uphill. You can try, but chances are you are going to get very wet."</p>
+    </div>
+
+    <p>So we put more and more effort into making it work. We find workarounds for their 'Dickness'. More ideas, more effort, more stress and sleepless nights, goodwill being burned like it's bonfire night. Worst of all, you stop doing what you think is right, and start doing things just to try and please them.</p>
+    <p>Now we're in over our heads. We have so much invested in it, the stakes are so high, we can't afford to back out. Even if the relationship ends, we want the last cheque, the dignity of completing the work so we can leave with our heads held high.</p>
+    <p>The reality is that someone is going to get fired at the end of this. Either you or the client. Even if you jump every hurdle being placed before you, turn the extra mile into an extra marathon, they won't thank you for it. In fact all they'll remember is how difficult it was, and how it was all your fault. And they will definitely not give you any more work. Because they're a Dick, right? That's just how they roll.</p>
+    <p>Your team will be stressed and demotivated. They'll have grown to hate their jobs. Your profitability will have gone through the floor. And morale will be at an all-time low.</p>
+    <p>The Dick was right about one thing though — it was your fault. You knew they were going to be a Dick. They were raising more red flags than a Chinese military parade. What did you expect? That they would change?</p>
+    <p>The problem is that they have all the power — not just because they have all the money, but because you let them behave that way with you and your staff. You accepted it. You enabled it. You reinforced their behaviour by saying it's OK, as long as you give us the money. You gave them the power to be a Dick.</p>
+    <p>And the money wasn't even all you thought it would be. You over-serviced, let other more reliable clients down, made minuscule margins, stopped focusing on better clients to try and make them happy, and now have to pay the costs of a demotivated workforce. It wasn't worth it.</p>
+
+    <hr class="body-break">
+
+    <p>So what to do? Listen to your instinct, for a start. If someone starts off being a Dick, they're probably going to stay being a Dick. I do believe everyone has the potential to change — but you have to ask yourself, at what cost? And if you invested that time elsewhere, how much more would you gain?</p>
+    <p>All their power is gained from people sucking it up and saying it's OK. You need to stop that cycle. Say no and walk away. Life is too short to work with Dicks, and in the end it doesn't make good business sense either. In staff terms alone, your best people will leave — wondering why you didn't protect them.</p>
+    <p>There are more than enough smart, pleasant, and successful people in the world for you to choose not to work with Dicks. And guess what? It'll be a far more rewarding relationship in every sense.</p>
+    <p>So don't be a Dick. You're better than that. And listen to your instinct. Choose not to work with Dicks before it's too late. It's never worth it.</p>
+  </div>
+
+  <div class="article-back"><a href="thinking.html">← Back to Bigalisms</a></div>
+
+  <footer class="footer">
+    <a href="/" class="footer-logo">big<span class="stop">.</span></a>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html">Thinking</a></li>
+    </ul>
+    <div class="footer-contact"><a href="mailto:al@bigness.uk">al@bigness.uk</a></div>
+  </footer>
+</body>
+</html>

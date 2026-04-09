@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is design? — big.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root { --cream:#F5F2ED;--cream-mid:#EDE9E2;--rule:#d0ccc4;--ink:#1a1916;--ink-mid:#5a5750;--ink-muted:#7a7770;--ink-faint:#9a9690;--red:#B8402E;--pad:56px;--section-v:88px;--max-w:1280px; }
+  * { box-sizing:border-box;margin:0;padding:0; }
+  body { font-family:Georgia,'Times New Roman',serif;background:var(--cream);color:var(--ink); }
+  .nav { display:flex;align-items:center;justify-content:space-between;padding:24px var(--pad);border-bottom:0.5px solid var(--rule);position:sticky;top:0;z-index:100;background:var(--cream); }
+  .nav-logo { font-family:Georgia,serif;font-size:20px;font-weight:400;letter-spacing:-0.02em;color:var(--ink);text-decoration:none; }
+  .nav-logo .stop { color:var(--red); }
+  .nav-links { display:flex;gap:36px;list-style:none; }
+  .nav-links a { font-family:'Lato',sans-serif;font-size:13px;color:var(--ink-faint);text-decoration:none; }
+  .nav-links a:hover { color:var(--ink); }
+  .nav-links a.active { color:var(--ink); }
+
+  /* Meta sits full-width above the grid */
+  .article-meta { display:flex;gap:24px;padding:var(--section-v) var(--pad) 0;align-items:center; }
+  .article-tag { font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted); }
+  .article-date { font-family:'Lato',sans-serif;font-size:10px;letter-spacing:0.08em;color:var(--ink-faint); }
+
+  /* 2-col grid: headline left, standfirst right — both from same top */
+  .article-header {
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:64px;align-items:start;
+    padding:28px var(--pad) var(--section-v);
+    border-bottom:0.5px solid var(--rule);
+  }
+  .article-title { font-family:Georgia,serif;font-size:52px;font-weight:400;line-height:1.1;letter-spacing:-0.035em; }
+  .article-title em { font-style:italic;color:var(--red); }
+  .article-standfirst { font-family:'Lato',sans-serif;font-size:21px;font-weight:300;color:var(--ink-mid);line-height:1.65;border-left:2px solid var(--red);padding-left:20px; }
+
+  /* Full-width image below header */
+  .article-hero-img {
+    width:100%;aspect-ratio:16/7;object-fit:cover;display:block;
+    border-bottom:0.5px solid var(--rule);background:var(--cream-mid);
+  }
+  .article-hero-placeholder {
+    width:100%;aspect-ratio:16/7;background:var(--cream-mid);
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:0.5px solid var(--rule);
+  }
+  .article-hero-placeholder span { font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint); }
+
+  /* Body */
+  .article-body { max-width:680px;margin:0 auto;padding:var(--section-v) var(--pad); }
+  .article-body p { font-family:'Lato',sans-serif;font-size:17px;font-weight:300;color:var(--ink-mid);line-height:1.85; }
+  .article-body p + p { margin-top:24px; }
+  .article-body ol { margin:32px 0 32px 24px; }
+  .article-body ol li { font-family:'Lato',sans-serif;font-size:17px;font-weight:300;color:var(--ink-mid);line-height:1.85;margin-bottom:16px; }
+
+  /* Pull quote */
+  .pull-quote {
+    margin:48px 0;
+    padding:0 0 0 24px;
+    border-left:2px solid var(--red);
+  }
+  .pull-quote p {
+    font-family:Georgia,serif;font-size:24px;font-weight:400;font-style:italic;
+    color:var(--ink);line-height:1.45;letter-spacing:-0.015em;
+  }
+  .pull-quote p + p { margin-top:0 !important; }
+
+  /* Inline image within body */
+  .body-img {
+    margin:48px 0;
+  }
+  .body-img img { width:100%;display:block;border-bottom:0.5px solid var(--rule); }
+  .body-img-placeholder {
+    width:100%;aspect-ratio:16/9;background:var(--cream-mid);
+    display:flex;align-items:center;justify-content:center;margin:48px 0;
+  }
+  .body-img-placeholder span { font-family:'Lato',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint); }
+  .body-img figcaption {
+    font-family:'Lato',sans-serif;font-size:12px;color:var(--ink-faint);
+    margin-top:12px;line-height:1.5;
+  }
+
+  /* Section break */
+  .body-break { display:block;width:56px;height:1px;background:var(--red);border:none;margin:48px 0; }
+
+  .article-back { padding:0 var(--pad) var(--section-v);max-width:680px;margin:0 auto; }
+  .article-back a { font-family:'Lato',sans-serif;font-size:13px;color:var(--red);text-decoration:none; }
+  .footer { padding:28px var(--pad);display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--rule); }
+  .footer-logo { font-family:Georgia,serif;font-size:16px;font-weight:400;color:var(--ink-mid);text-decoration:none; }
+  .footer-logo .stop { color:var(--red); }
+  .footer-links { display:flex;gap:28px;list-style:none; }
+  .footer-links a { font-family:'Lato',sans-serif;font-size:12px;color:var(--ink-faint);text-decoration:none; }
+  .footer-contact a { font-family:'Lato',sans-serif;font-size:12px;color:var(--red);text-decoration:none; }
+  @media (max-width:768px) { :root{--pad:24px;--section-v:56px;} .article-header{grid-template-columns:1fr;gap:32px;} .article-title{font-size:36px;} .footer{flex-direction:column;gap:20px;text-align:center;} }
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-brand">
+      <a href="/" class="nav-logo">big<span class="stop">.</span></a>
+      <span class="nav-tagline">coaching · facilitation</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html" class="active">Thinking</a></li>
+    </ul>
+  </nav>
+
+  <div class="article-meta">
+    <span class="article-tag">Design</span>
+    <span class="article-date">2015</span>
+  </div>
+
+  <div class="article-header">
+    <h1 class="article-title">What is<br><em>design?</em></h1>
+    <p class="article-standfirst">Design is about making things better — full stop. Everything else follows from that. One word explains why this matters more now than it ever has.</p>
+  </div>
+
+  <img class="article-hero-img" src="images/IMG_6789.jpg" alt="What is design?" />
+
+  <div class="article-body">
+    <p>Design Week set the question: what is the definition of design? To me, it is very simple — design is about making things better.</p>
+    <p>And with all the traditional barriers between commercial creative disciplines breaking down, it remains the clearest differentiation between design and advertising. Advertising is about doing whatever it takes to sell stuff. Design is about making things better first, in the belief that when that is put in a commercial context, it will naturally help sell stuff.</p>
+
+    <div class="pull-quote">
+      <p>"If there was any debate as to the value of this, you need only mention one word: Apple."</p>
+    </div>
+
+    <p>Apple didn't have the first touchscreen phones, the first GPS, and there have always been more powerful and cheaper alternatives to their products. What Apple has done brilliantly is design — making things better. And doing this has helped it go from a niche player to one of the most valuable companies in the world, with an almost fanatical following.</p>
+    <p>Design is also about having a client. Design without a client is fine art — which is very worthy in its own right, but it is not design. The discipline exists in the service of something.</p>
+
+    <hr class="body-break">
+
+    <p>It's also about creating a new vision — literally changing how people see things — and therefore it is one of the most powerful ways of achieving anything. People know this deep down and are naturally attracted to it. Hence the great emphasis we place as a culture on visionary leaders.</p>
+    <p>Good clients will know this too — they appreciate the power of a new vision. They will also know that a vision in harmony with a natural human order is even more powerful, because it taps into billions of people's natural desire and need for positive change.</p>
+    <p>Design at its best doesn't just make things look better. It makes things work better. It makes life better. That's the whole point.</p>
+  </div>
+
+  <div class="article-back"><a href="thinking.html">← Back to Bigalisms</a></div>
+
+  <footer class="footer">
+    <a href="/" class="footer-logo">big<span class="stop">.</span></a>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html">Thinking</a></li>
+    </ul>
+    <div class="footer-contact"><a href="mailto:al@bigness.uk">al@bigness.uk</a></div>
+  </footer>
+</body>
+</html>

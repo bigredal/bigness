@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Work — big.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:      #F5F2ED;
+    --cream-mid:  #EDE9E2;
+    --rule:       #d0ccc4;
+    --ink:        #1a1916;
+    --ink-mid:    #5a5750;
+    --ink-muted:  #7a7770;
+    --ink-faint:  #9a9690;
+    --red:        #B8402E;
+
+    --pad:        56px;
+    --col-gap:    64px;
+    --section-v:  88px;
+    --max-w:      1280px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .label {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-muted); display: block; margin-bottom: 24px;
+  }
+
+  .deco-rule {
+    display: block;
+    width: 56px;
+    height: 1px;
+    background: var(--red);
+    border: none;
+    margin: 36px 0 0;
+  }
+
+  .inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: var(--section-v) var(--pad);
+  }
+
+  .grid-half {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--col-gap);
+    align-items: start;
+  }
+
+  /* ─── NAV ─────────────────────────────────────────────────── */
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px var(--pad);
+    border-bottom: 0.5px solid var(--rule);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+  }
+  .nav-logo {
+    font-family: Georgia, serif;
+    font-size: 23px; font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-brand { display: flex; flex-direction: column; gap: 5px; }
+  .nav-logo .stop { color: var(--red); }
+  .nav-tagline { font-family: 'Lato', sans-serif; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-faint); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px; color: var(--ink-faint); text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); }
+
+  /* ─── PAGE HEADER ─────────────────────────────────────────── */
+  .page-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: start;
+  }
+  .page-header-left,
+  .page-header-right {
+    padding: var(--section-v) var(--pad);
+  }
+  .page-header h1 {
+    font-family: Georgia, serif;
+    font-size: 52px; font-weight: 400; line-height: 1.1;
+    letter-spacing: -0.035em; color: var(--ink);
+  }
+  .page-header h1 em { font-style: italic; color: var(--red); }
+  .page-header-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 21px; font-weight: 300;
+    color: var(--ink-mid); line-height: 1.65;
+    border-left: 2px solid var(--red);
+    padding-left: 20px;
+  }
+
+  /* ─── THREE APPROACHES ────────────────────────────────────── */
+  .approaches {
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .approaches-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+  .approach-col {
+    padding: var(--section-v) var(--pad);
+    border-right: 0.5px solid var(--rule);
+  }
+  .approach-col:last-child { border-right: none; }
+  .approach-name {
+    font-family: Georgia, serif;
+    font-size: 36px; font-weight: 400; line-height: 1.1;
+    letter-spacing: -0.025em; color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .approach-name em { font-style: italic; color: var(--red); }
+  .approach-def {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; font-weight: 300;
+    color: var(--ink-mid); line-height: 1.85;
+  }
+
+  /* ─── SYNTHESIS ───────────────────────────────────────────── */
+  .synthesis {
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .synthesis .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--col-gap);
+    align-items: start;
+  }
+  .synthesis-body p {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; font-weight: 300;
+    color: var(--ink-mid); line-height: 1.85;
+  }
+  .synthesis-body p + p { margin-top: 20px; }
+  .synthesis-pull {
+    font-family: Georgia, serif;
+    font-size: 28px; font-weight: 400; line-height: 1.35;
+    letter-spacing: -0.02em; color: var(--ink);
+  }
+  .synthesis-pull em { font-style: italic; color: var(--red); }
+
+  /* ─── WHAT PEOPLE BRING ───────────────────────────────────── */
+  .brings {
+    border-bottom: 0.5px solid var(--rule);
+    background: var(--cream-mid);
+  }
+  .brings-intro {
+    font-family: Georgia, serif;
+    font-size: 22px; font-weight: 400; line-height: 1.4;
+    letter-spacing: -0.015em; color: var(--ink);
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+  .brings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 0.5px solid var(--rule);
+  }
+  .brings-item {
+    padding: 28px 0;
+    border-bottom: 0.5px solid var(--rule);
+    padding-right: 48px;
+  }
+  .brings-item:nth-child(odd) {
+    border-right: 0.5px solid var(--rule);
+    padding-right: 48px;
+  }
+  .brings-item:nth-child(even) {
+    padding-left: 48px;
+    padding-right: 0;
+  }
+  .brings-item p {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; font-weight: 300;
+    color: var(--ink-mid); line-height: 1.75;
+  }
+  .brings-item strong {
+    font-family: Georgia, serif;
+    font-size: 16px; font-weight: 400;
+    color: var(--ink); display: block;
+    margin-bottom: 8px; letter-spacing: -0.01em;
+  }
+
+  /* ─── HOW IT WORKS ────────────────────────────────────────── */
+  .how {
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .how .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--col-gap);
+    align-items: start;
+  }
+  .how-copy p {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; font-weight: 300;
+    color: var(--ink-mid); line-height: 1.85;
+  }
+  .how-copy p + p { margin-top: 20px; }
+
+  /* Cadence cards */
+  .cadence-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 0.5px solid var(--rule);
+  }
+  .cadence-item {
+    padding: 24px 0;
+    border-bottom: 0.5px solid var(--rule);
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .cadence-freq {
+    font-family: Georgia, serif;
+    font-size: 17px; font-weight: 400;
+    color: var(--ink); line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .cadence-desc {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px; font-weight: 300;
+    color: var(--ink-mid); line-height: 1.75;
+  }
+
+  /* ─── TESTIMONIALS ────────────────────────────────────────── */
+  .testimonials {
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    margin-top: 56px;
+    border-top: 0.5px solid var(--rule);
+  }
+  .testimonial-item {
+    padding: var(--section-v) var(--pad) var(--section-v) 0;
+    border-right: 0.5px solid var(--rule);
+    padding-right: var(--pad);
+  }
+  .testimonial-item:first-child { padding-left: 0; }
+  .testimonial-item:last-child { border-right: none; padding-right: 0; }
+  .testimonial-item:not(:first-child) { padding-left: var(--pad); }
+  .testimonial-quote {
+    font-family: Georgia, serif;
+    font-size: 17px; font-weight: 400;
+    font-style: italic;
+    color: var(--ink); line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .testimonial-attr {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .testimonial-rule {
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--red);
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  /* ─── CTA ──────────────────────────────────────────────────── */
+  .cta {
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .cta-text {
+    font-family: Georgia, serif;
+    font-size: 32px; font-weight: 400; line-height: 1.3;
+    letter-spacing: -0.02em; color: var(--ink);
+    max-width: 600px; margin-bottom: 28px;
+  }
+  .cta-email {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px; color: var(--red); text-decoration: none;
+  }
+
+  /* ─── FOOTER ───────────────────────────────────────────────── */
+  .footer {
+    padding: 28px var(--pad);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-logo {
+    font-family: Georgia, serif; font-size: 16px; font-weight: 400; color: var(--ink-mid);
+    text-decoration: none;
+  }
+  .footer-logo .stop { color: var(--red); }
+  .footer-links { display: flex; gap: 28px; list-style: none; }
+  .footer-links a {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; color: var(--ink-faint); text-decoration: none;
+  }
+  .footer-contact a {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; color: var(--red); text-decoration: none;
+  }
+
+  /* ─── RESPONSIVE ───────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    :root { --pad: 24px; --col-gap: 32px; --section-v: 56px; }
+    .page-header { grid-template-columns: 1fr; }
+    .page-header h1 { font-size: 36px; }
+    .approaches-grid { grid-template-columns: 1fr; }
+    .approach-col { border-right: none; border-bottom: 0.5px solid var(--rule); }
+    .synthesis .inner,
+    .how .inner { grid-template-columns: 1fr; gap: 40px; }
+    .cadence-item { grid-template-columns: 1fr; gap: 8px; }
+    .brings-grid { grid-template-columns: 1fr; }
+    .brings-item:nth-child(odd) { border-right: none; padding-right: 0; }
+    .brings-item:nth-child(even) { padding-left: 0; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-item { border-right: none; border-bottom: 0.5px solid var(--rule); padding-left: 0; padding-right: 0; }
+    .how-detail { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-brand">
+      <a href="/" class="nav-logo">big<span class="stop">.</span></a>
+      <span class="nav-tagline">coaching · facilitation</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="thinking.html">Thinking</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-left">
+      <h1>Three ways<br>to help.<br><em>One way</em><br>of working.</h1>
+    </div>
+    <div class="page-header-right">
+      <div class="page-header-sub">
+        Most leadership support falls into one of three approaches. Understanding the difference matters — because the right one depends on what you actually need.
+      </div>
+    </div>
+  </header>
+
+  <!-- THREE APPROACHES -->
+  <section class="approaches">
+    <div class="approaches-grid">
+      <div class="approach-col">
+        <span class="label">Approach one</span>
+        <div class="approach-name">Mentor<em>ing.</em></div>
+        <p class="approach-def">I had a similar problem once. Here's what I did — and what I'd do differently. Useful when you need a shortcut, or want to learn from someone who's been in a similar position. The risk is that my answer is shaped by my experience, not yours.</p>
+      </div>
+      <div class="approach-col">
+        <span class="label">Approach two</span>
+        <div class="approach-name">Consul<em>tancy.</em></div>
+        <p class="approach-def">Give me the problem. I'll research it, think it through, and come back with a recommendation. Efficient, and useful for specific decisions. But it's my answer — you're implementing someone else's solution, which makes it harder to fully own.</p>
+      </div>
+      <div class="approach-col">
+        <span class="label">Approach three</span>
+        <div class="approach-name">Coach<em>ing.</em></div>
+        <p class="approach-def">I help you find your own answers. It takes more time. But a solution you've reached yourself is one you understand, believe in, and are far more likely to follow through on. In my experience, it's the most effective approach — almost every time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYNTHESIS -->
+  <section class="synthesis">
+    <div class="inner">
+      <div class="synthesis-body">
+        <span class="label">In practice</span>
+        <p>My approach draws on all three — because real situations rarely fit neatly into a single mode. Sometimes you need a perspective from someone who's been in a similar position. Sometimes you need someone to do the thinking alongside you and come back with options. And sometimes you need space to work out what you already know but haven't said yet.</p>
+        <p>But coaching is the backbone. The goal is never to tell you what to do — it's to help you get clearer on what you actually think, what matters most, and what's getting in the way. From there, the path tends to become obvious.</p>
+        <hr class="deco-rule">
+      </div>
+      <div class="synthesis-pull">
+        "A solution you've reached yourself is one you'll believe in — and <em>follow through on.</em>"
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT PEOPLE BRING -->
+  <section class="brings">
+    <div class="inner">
+      <span class="label">What people bring</span>
+      <p class="brings-intro">There's no typical client. But there are recurring situations — moments where an outside perspective, and someone to think alongside, makes a real difference.</p>
+      <div class="brings-grid">
+
+        <div class="brings-item">
+          <strong>A desire for major change.</strong>
+          <p>Career direction, where you work, how you work. You know something needs to shift — but the size of the change, and the fear of getting it wrong, makes it hard to move.</p>
+        </div>
+
+        <div class="brings-item">
+          <strong>Thinking about an exit.</strong>
+          <p>You're considering selling a business, stepping back, or moving on. You want to do it well — on your terms, at the right time, for the right reasons.</p>
+        </div>
+
+        <div class="brings-item">
+          <strong>A life event that changes the equation.</strong>
+          <p>Something has shifted — personally, professionally, or both — and your old way of working no longer fits. You need to work out what does.</p>
+        </div>
+
+        <div class="brings-item">
+          <strong>Growing a business.</strong>
+          <p>You're building something. The challenges are getting more complex — strategy, people, culture, decisions under pressure. You want a thinking partner who's been in the room.</p>
+        </div>
+
+        <div class="brings-item">
+          <strong>Team or culture challenges.</strong>
+          <p>Something isn't working in how the team operates — communication, trust, performance, or dynamics. You want to address it properly, not paper over it.</p>
+        </div>
+
+        <div class="brings-item">
+          <strong>Leadership relationships that aren't working.</strong>
+          <p>Peers, stakeholders, or people above you. The relationship is costing you energy, influence, or results — and you want to change that.</p>
+        </div>
+
+        <div class="brings-item">
+          <strong>Avoiding burnout. Enjoying work again.</strong>
+          <p>You're effective, but it doesn't feel sustainable. You want to be better with your time, your energy, and your attention — before something breaks.</p>
+        </div>
+
+        <div class="brings-item">
+          <strong>Stuck. In complexity, or in routine.</strong>
+          <p>The mire of competing demands, unclear priorities, or just the creeping feeling that you're moving but not going anywhere. You need clarity, and someone to help you find it.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="inner">
+      <div class="how-copy">
+        <span class="label">How it works</span>
+        <p>We start with a discovery conversation — not a sales pitch, just an honest look at where you are and where you want to be. From there I'll get a fuller sense of the current situation, what you're trying to achieve, and what's getting in the way.</p>
+        <p>Sessions are typically 90 minutes, by video call or in person — whichever works. Between sessions, you have access to me for a message or quick call if something comes up and you don't want to wait. Some of the most useful conversations happen in the gaps.</p>
+        <p>When the problem warrants it, there's the option of a day at the farm in Sussex — proper thinking space, away from the desk and the diary. Fire, fresh air, and enough room to think something through properly.</p>
+        <p>We begin with a two-session trial. If it's working, we continue. If not, no hard feelings. After the trial, either side can end the engagement with a month's notice.</p>
+        <hr class="deco-rule">
+      </div>
+      <div>
+        <span class="label">Frequency</span>
+        <div class="cadence-grid">
+          <div class="cadence-item">
+            <span class="cadence-freq">Weekly</span>
+            <span class="cadence-desc">Suits periods of significant change, pressure, or complexity — when things are moving fast and you need consistent support and challenge close to the action.</span>
+          </div>
+          <div class="cadence-item">
+            <span class="cadence-freq">Fortnightly</span>
+            <span class="cadence-desc">The most common rhythm. Enough time between sessions to act, reflect, and bring something new — without losing momentum or thread.</span>
+          </div>
+          <div class="cadence-item">
+            <span class="cadence-freq">Monthly</span>
+            <span class="cadence-desc">Works well for people in a more settled phase — using the sessions as a regular space to take stock, course-correct, and think longer-term.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="inner">
+      <span class="label">What people say</span>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-item">
+          <hr class="testimonial-rule">
+          <p class="testimonial-quote">"Al has a rare ability to help you think more clearly without ever telling you what to think. I came in circles; I left with a plan I actually believed in."</p>
+          <span class="testimonial-attr">Founder, creative consultancy</span>
+        </div>
+
+        <div class="testimonial-item">
+          <hr class="testimonial-rule">
+          <p class="testimonial-quote">"I'd tried other coaches. The difference with Al is that he understands the real pressures of running a business — he's not working from a framework, he's working from experience."</p>
+          <span class="testimonial-attr">MD, technology business</span>
+        </div>
+
+        <div class="testimonial-item">
+          <hr class="testimonial-rule">
+          <p class="testimonial-quote">"Genuinely one of the best investments I've made in myself. The work goes deeper than I expected, and the results have been more practical than I hoped."</p>
+          <span class="testimonial-attr">Co-founder, B Corp</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="inner">
+      <div class="cta-text">If any of this sounds like the right kind of conversation, the best place to start is a call.</div>
+      <a href="mailto:al@bigness.uk" class="cta-email">al@bigness.uk</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="/" class="footer-logo">big<span class="stop">.</span></a>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="thinking.html">Thinking</a></li>
+    </ul>
+    <div class="footer-contact">
+      <a href="mailto:al@bigness.uk">al@bigness.uk</a>
+    </div>
+  </footer>
+
+</body>
+</html>
