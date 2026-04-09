@@ -238,12 +238,19 @@
     font-size: 13px; color: var(--red); text-decoration: none;
   }
   .about-img {
-    width: 100%;
     aspect-ratio: 4/3;
-    object-fit: cover;
-    object-position: center 40%;
-    display: block;
   }
+  .about-img img { object-position: center 40%; }
+
+  /* ─── RED TINT ON ALL IMAGES ──────────────────────────────── */
+  .img-wrap { position: relative; overflow: hidden; }
+  .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-wrap::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(184,64,46,0.20);
+    transition: opacity 0.35s ease; z-index: 1;
+  }
+  .img-wrap:hover::after { opacity: 0; }
 
   /* ─── THINKING — 3-col editorial ─────────────────────────── */
   .thinking {
@@ -417,7 +424,7 @@
           <hr class="deco-rule">
           <a href="about.html" class="about-link">More about me →</a>
         </div>
-        <img class="about-img" src="images/IMG_6789.jpg" alt="Moka pot brewing on an open fire in a Sussex field" />
+        <div class="about-img img-wrap"><img src="images/IMG_6789.jpg" alt="Moka pot brewing on an open fire in a Sussex field"></div>
       </div>
     </div>
   </section>

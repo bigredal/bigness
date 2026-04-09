@@ -146,13 +146,10 @@
     align-items: start;
   }
   .portrait-img {
-    width: 100%;
     aspect-ratio: 3/4;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
     border-right: 0.5px solid var(--rule);
   }
+  .portrait-img img { object-position: center top; }
   .portrait-copy {
     padding: var(--section-v) var(--pad);
     max-width: calc(var(--max-w) / 2); /* align text with inner grid */
@@ -167,8 +164,6 @@
   .full-img {
     width: 100%;
     height: 480px;
-    object-fit: cover;
-    display: block;
     border-bottom: 0.5px solid var(--rule);
   }
 
@@ -188,10 +183,7 @@
   }
   .how-copy p + p { margin-top: 20px; }
   .how-img {
-    width: 100%;
     aspect-ratio: 1/1;
-    object-fit: cover;
-    display: block;
   }
 
   /* ─── OTHER LIFE ───────────────────────────────────────────── */
@@ -216,12 +208,9 @@
     font-size: 13px; color: var(--red); text-decoration: none;
   }
   .other-img {
-    width: 100%;
     aspect-ratio: 1/1;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
   }
+  .other-img img { object-position: center top; }
 
   /* ─── CTA ──────────────────────────────────────────────────── */
   .cta {
@@ -237,6 +226,16 @@
     font-family: 'Lato', sans-serif;
     font-size: 15px; color: var(--red); text-decoration: none;
   }
+
+  /* ─── RED TINT ON ALL IMAGES ──────────────────────────────── */
+  .img-wrap { position: relative; overflow: hidden; }
+  .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-wrap::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(184,64,46,0.20);
+    transition: opacity 0.35s ease; z-index: 1;
+  }
+  .img-wrap:hover::after { opacity: 0; }
 
   /* ─── FOOTER ───────────────────────────────────────────────── */
   .footer {
@@ -271,7 +270,7 @@
     .how .inner,
     .other .inner { grid-template-columns: 1fr; gap: 32px; }
     .portrait-section { grid-template-columns: 1fr; }
-    .portrait-img { aspect-ratio: 4/3; border-right: none; border-bottom: 0.5px solid var(--rule); }
+    .portrait-img { aspect-ratio: 4/3 !important; border-right: none; border-bottom: 0.5px solid var(--rule); }
     .full-img { height: 280px; }
     .footer { flex-direction: column; gap: 20px; text-align: center; }
   }
@@ -307,7 +306,7 @@
 
   <!-- PORTRAIT + STORY -->
   <section class="portrait-section">
-    <img class="portrait-img" src="images/portrait.jpg" alt="Al Reid at Brighton station" />
+    <div class="portrait-img img-wrap"><img src="images/portrait.jpg" alt="Al Reid at Brighton station"></div>
     <div class="portrait-copy">
       <span class="label">My background</span>
       <p>I spent twenty years running creative studios — building teams, navigating clients, learning what it actually costs to make something good. The kind of work that leaves you knowing exactly how pressure feels from the inside.</p>
@@ -318,7 +317,7 @@
   </section>
 
   <!-- FULL-WIDTH IMAGE — woodland path -->
-  <img class="full-img" src="images/IMG_0587.jpg" alt="A path through woodland, winter light" />
+  <div class="full-img img-wrap"><img src="images/IMG_0587.jpg" alt="A path through woodland, winter light"></div>
 
   <!-- HOW I WORK -->
   <section class="how">
@@ -330,7 +329,7 @@
         <p>I work one-to-one, and occasionally with leadership teams when a group needs to think something through together. The thread is always the same: get clearer on what actually matters, and work out how to get there.</p>
         <hr class="deco-rule">
       </div>
-      <img class="how-img" src="images/IMG_6789.jpg" alt="Moka pot brewing on an open fire in a Sussex field" />
+      <div class="how-img img-wrap"><img src="images/IMG_6789.jpg" alt="Moka pot brewing on an open fire in a Sussex field"></div>
     </div>
   </section>
 
@@ -343,7 +342,7 @@
         <p>The music, the images, and the miles all feed the same thing: paying close attention to the world. Which, it turns out, is also the most useful thing you can do in a coaching session.</p>
         <a href="https://bigredal.com" class="other-link">The music lives at bigredal.com →</a>
       </div>
-      <img class="other-img" src="images/portrait-cycling.jpg" alt="Al Reid on a bike ride near Shoreham" />
+      <div class="other-img img-wrap"><img src="images/portrait-cycling.jpg" alt="Al Reid on a bike ride near Shoreham"></div>
     </div>
   </section>
 
